@@ -1,0 +1,110 @@
+ 
+
+Authenticate a user
+
+Display Account Summary
+
+Display Transaction History
+
+Allow users to transact
+
+Search for a Transaction
+
+ 
+
+Model the implementation as per the following instructions:
+
+ 
+
+The default website style is already provided in the project. 	
+Create a top-right side and left side menu using ui-router.  	
+
+
+The default username and password of the application should be test(username) and test(password) by using the AuthenticationService.
+
+	
+
+
+Successful login should redirect to account summary page, and all account details should be displayed by using the service AccountSummaryService (to display account summary, json file available at src\data).
+
+	
+
+On the transaction page, a transaction table (column sorting) should be displayed. To display transactions, use the following array:
+ [{
+     amount: 100.00,
+     fromaccount: 37373787654,
+     toaccount: 37373787654,
+     description: 'Deposit',
+     type: 'credit'
+ }, {
+     amount: 50.00,
+     fromaccount: 37373787654,
+     toaccount: 37373787654,
+     description: 'Best Buy',
+     type: 'debit'
+ }, {
+     amount: 25.26,
+     fromaccount: 37373787654,
+     toaccount: 37373787654,
+     description: 'Olive Garden',
+     type: 'debit'
+ }, {
+     amount: 100.00,
+     fromaccount: 37373787654,
+     toaccount: 37373787654,
+     description: 'Deposit',
+     type: 'credit'
+ }, {
+     amount: 35.15,
+     fromaccount: 37373787654,
+     toaccount: 37373787654,
+     description: 'McPee\'s',
+     type: 'debit'
+ }, {
+     amount: 16.25,
+     fromaccount: 37373787654,
+     toaccount: 37373787654,
+     description: 'QT205',
+     type: 'debit'
+ }]
+	
+
+
+User's should be able to search for a transaction by using the Search option.
+
+	
+
+ 
+
+ 
+
+Notes:
+Do not modify the IDs or classes of the existing UI elements (they are required by the unit tests).
+Angularjs version 1.x features like controllers, services, directives/ filters, scope variables, UI-Grid/Ng-grid, $http, etc can be used to develop the solution.
+All project files are kept in the src folder.
+Use the ui-router for routing between pages (login, account summary, transactions and search menu navigation has to be done by using $stateProvider and state)
+All html templates are available in the src/app/templates/ folder, and corresponding empty controllers are available in the src/app/controllers/ folder.                                                                                                                                                     
+
+Details of Services:
+
+
+AuthenticationService(authentication.service.js) should give access to the site if the username and password is "test". Otherwise, it should return the message "Username or password is incorrect".
+
+ 
+
+AccountSummaryService(account-summary.service.js) should return the account details from data/account-summary.json using $http.get.
+ 
+
+Details of Controllers:
+
+ 
+
+LoginController must contain the login function that accesses the authenticationService already defined in authentication.service.js.
+
+ 
+
+AccountSummaryController must contain the getAccountSummary function that accesses accountSummaryService already defined in account-summary.service.js.
+
+ 
+
+TransactionsController must contain the saveTransaction function which saves the given transaction summary to the transactions details array.
